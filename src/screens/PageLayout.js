@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Spinner } from "@blueprintjs/core";
+import { Spinner } from '@blueprintjs/core';
 
 import { fetchCollections, fetchMetadata } from '../actions';
 
 import PageNavbar from '../components/PageNavbar';
 
 import SearchScreen from './SearchScreen';
-import LoginScreen from "./LoginScreen";
+import LoginScreen from './LoginScreen';
 import ErrorScreen from './ErrorScreen';
-import LogoutScreen from "./LogoutScreen";
-import SignupScreen from "./SignupScreen";
-import ActivateScreen from "./ActivateScreen";
+import LogoutScreen from './LogoutScreen';
+import SignupScreen from './SignupScreen';
+import ActivateScreen from './ActivateScreen';
+import CollectionsScreen from './CollectionsScreen';
 
 class PageLayout extends Component {
 
@@ -42,6 +43,7 @@ class PageLayout extends Component {
             <Route path="/logout" exact component={LogoutScreen}/>
             <Route path="/signup" exact component={SignupScreen}/>
             <Route path="/activate/:code" exact component={ActivateScreen}/>
+            <Route path="/collections" exact component={CollectionsScreen}/>
             <Route component={ErrorScreen}/>
           </Switch>
         </main>
