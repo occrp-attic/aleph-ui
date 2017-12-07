@@ -7,11 +7,11 @@ export default function asyncActionCreator(actionCreator, {
   ERROR = `${name}_ERROR`,
   COMPLETE = `${name}_COMPLETE`,
 } = {}) {
-  const newActionCreator = (...args) => async function (dispatch) {
-    const action = actionCreator(...args);
+  const newActionCreator = payload => async function (dispatch) {
+    const action = actionCreator(payload);
     dispatch({
       type: START,
-      payload: args,
+      payload,
     });
     try {
       const valueOrPromise = dispatch(action);
